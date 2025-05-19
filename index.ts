@@ -13,7 +13,7 @@ app.get('/questions', async () => {
 })
 
 app.post('/questions', async ({ body }: {body :{ question:string, options:string[] ,answer:number ,tag:string}}) => {
-    return await prisma.quiz.create({
+    await prisma.quiz.create({
         data: {
             question: body.question,
             options: body.options,
@@ -21,6 +21,7 @@ app.post('/questions', async ({ body }: {body :{ question:string, options:string
             tag: body.tag,
         }
     })
+    return { message: 'quiz add successfully' }
 })
 
 app.delete('/questions/:id', async ({ params }: {params :{ id:string}}) => {    
