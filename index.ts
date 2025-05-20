@@ -35,4 +35,6 @@ app.delete('/questions/:id', async ({ params }: {params :{ id:string}}) => {
 
 app.listen(3001)
 
-console.log("Server is running on http://localhost:3001")
+console.log(
+  `🦊 Elysia is running at ${app.server?.hostname}:${app.server?.port}`
+);
